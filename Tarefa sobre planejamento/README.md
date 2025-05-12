@@ -1,8 +1,13 @@
 # Inteligência Artificial – Atividade sobre Planejamento
 
 ## Alunos:
+
 *Aline da Conceição Ferreira Lima*
 *Matheus Rocha Canto*
+*João Victor Félix Guedes*
+*Karen Letícia Santana da Silva*
+*Hannah Lisboa Barreto*
+*Paulo Vitor de Castro Freitas*
 
 ---
 
