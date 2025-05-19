@@ -1,0 +1,43 @@
+% Fatos com probabilidades marginais
+0.5::str(dry).
+0.3::str(wet).
+0.2::str(snow_covered).
+
+0.2::flw(true).
+0.8::flw(false).
+
+0.9::b(true).
+0.1::b(false).
+
+0.95::k(true).
+0.05::k(false).
+
+% P(R | Str, Flw)
+0.95::r(true) :- str(dry), flw(false).
+0.70::r(true) :- str(dry), flw(true).
+0.80::r(true) :- str(wet), flw(false).
+0.50::r(true) :- str(wet), flw(true).
+0.60::r(true) :- str(snow_covered), flw(false).
+0.30::r(true) :- str(snow_covered), flw(true).
+
+% Complemento para R = false
+r(false) :- \+ r(true).
+
+% P(V | R)
+0.95::v(true) :- r(true).
+0.10::v(true) :- r(false).
+
+v(false) :- \+ v(true).
+
+% P(Li | V, B, K)
+0.99::li(true) :- v(true), b(true), k(true).
+0.60::li(true) :- v(true), b(true), k(false).
+0.40::li(true) :- v(true), b(false), k(true).
+0.10::li(true) :- v(true), b(false), k(false).
+0.0::li(true) :- v(false).  % sem voltagem, luz não liga
+
+li(false) :- \+ li(true).
+
+% Consulta solicitada
+query(v(true)).
+evidence(str(snow_covered)).
